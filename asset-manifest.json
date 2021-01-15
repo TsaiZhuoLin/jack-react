@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/jack-react/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/jack-react/static/js/main.60de8444.chunk.js",
+    "main.js.map": "/jack-react/static/js/main.60de8444.chunk.js.map",
+    "runtime-main.js": "/jack-react/static/js/runtime-main.d0d1b0b2.js",
+    "runtime-main.js.map": "/jack-react/static/js/runtime-main.d0d1b0b2.js.map",
+    "static/js/2.f09c6ee9.chunk.js": "/jack-react/static/js/2.f09c6ee9.chunk.js",
+    "static/js/2.f09c6ee9.chunk.js.map": "/jack-react/static/js/2.f09c6ee9.chunk.js.map",
+    "static/js/3.0a95367b.chunk.js": "/jack-react/static/js/3.0a95367b.chunk.js",
+    "static/js/3.0a95367b.chunk.js.map": "/jack-react/static/js/3.0a95367b.chunk.js.map",
+    "index.html": "/jack-react/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/jack-react/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.f09c6ee9.chunk.js.LICENSE.txt": "/jack-react/static/js/2.f09c6ee9.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/jack-react/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d0d1b0b2.js",
+    "static/js/2.f09c6ee9.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.60de8444.chunk.js"
+  ]
+}
