@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
-import PokemonContext from "../PokemonContext";
+import React from "react";
 import styled from "@emotion/styled";
+import { useSelector, useDispatch } from "react-redux";
 
 const PokemonFilter = () => {
-  const {
-    state: { filter },
-    dispatch,
-  } = useContext(PokemonContext);
+  const dispatch = useDispatch();
+  const filter = useSelector(state => state.filter);
+
   return (
     <Input
       type="text"

@@ -1,12 +1,21 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import styled from "@emotion/styled";
 import PokemonInfo from "./components/PokemonInfo";
 import PokemonFilter from "./components/PokemonFilter";
 import PokemonTable from "./components/PokemonTable";
-import PokemonContext from "./PokemonContext";
 
-const pokemonReducer = (state, action) => {
+import { createStore } from "redux";
+import { Provider, useSelector, useDispatch } from "react-redux";
+
+const pokemonReducer = (
+  state = {
+    pokemon: [],
+    filter: "",
+    selectedPokemon: null,
+  },
+  action,
+) => {
   switch (action.type) {
     case "SET_FILTER":
       return {
@@ -25,16 +34,15 @@ const pokemonReducer = (state, action) => {
       };
 
     default:
-      throw new Error("No action");
+      return state;
   }
 };
 
+const store = createStore(pokemonReducer);
+
 function App() {
-  const [state, dispatch] = useReducer(pokemonReducer, {
-    pokemon: [],
-    filter: "",
-    selectedPokemon: null,
-  });
+  const dispatch = useDispatch();
+  const pokemon = useSelector(state => state.pokemon);
 
   useEffect(() => {
     fetch("http://localhost:3000/jack-react/pokemon.json")
@@ -45,35 +53,34 @@ function App() {
           payload: data,
         }),
       );
-  }, []);
+  });
 
-  if (!state.pokemon) {
+  if (!pokemon) {
     return <div>Loading data</div>;
   }
 
   return (
-    <PokemonContext.Provider
-      value={{
-        state,
-        dispatch,
-      }}
-    >
-      <Container>
-        <Title>pokemon Search</Title>
-        <TwoColumnLayout>
-          <div>
-            <PokemonFilter />
-            <PokemonTable />
-          </div>
+    <Container>
+      <Title>pokemon Search</Title>
+      <TwoColumnLayout>
+        <div>
+          <PokemonFilter />
+          <PokemonTable />
+        </div>
 
-          <PokemonInfo />
-        </TwoColumnLayout>
-      </Container>
-    </PokemonContext.Provider>
+        <PokemonInfo />
+      </TwoColumnLayout>
+    </Container>
   );
 }
 
-export default App;
+const AppWrapper = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+export default AppWrapper;
 
 const Title = styled.h1`
   text-align: center;
